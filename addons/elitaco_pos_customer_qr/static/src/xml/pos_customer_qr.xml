@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" name="elitaco_pos_customer_qr assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="module" src="/elitaco_pos_customer_qr/static/src/js/overrides/barcode_handler.js"/>
+        </xpath>
+    </template>
+</odoo>
