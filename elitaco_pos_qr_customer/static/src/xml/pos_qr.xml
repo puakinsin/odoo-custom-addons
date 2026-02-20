@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- QR Customer Info Widget (optional - for showing customer info in POS) -->
+    <template id="assets" name="elitaco_pos_qr_customer assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/elitaco_pos_qr_customer/static/src/js/overrides/barcode_parser.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="name">pos.config.form.elitaco.qr</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='billing_setting']" position="before">
+                <div class="col-12 col-lg-6 o_setting_box" id="qr_customer_setting">
+                    <div class="o_setting_left_panel">
+                        <label for="qr_customer_enabled"/>
+                    </div>
+                    <div class="o_setting_right_panel">
+                        <div class="custom-control custom-switch">
+                            <field name="qr_customer_enabled"/>
+                        </div>
+                        <div class="text-muted" style="margin-top: 8px;">
+                            Scan QR codes to select customers in POS
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-6 o_setting_box" id="qr_validation_setting"
+                     attrs="{'invisible': [('qr_customer_enabled', '=', False)]}">
+                    <div class="o_setting_left_panel">
+                        <label for="qr_validation_mode"/>
+                    </div>
+                    <div class="o_setting_right_panel">
+                        <field name="qr_validation_mode" widget="radio"/>
+                        <div class="text-muted" style="margin-top: 8px;">
+                            How to validate QR codes: offline (local only) or online (API)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-6 o_setting_box" id="qr_token_setting"
+                     attrs="{'invisible': [('qr_customer_enabled', '=', False)]}">
+                    <div class="o_setting_left_panel">
+                        <label for="qr_token_required"/>
+                    </div>
+                    <div class="o_setting_right_panel">
+                        <div class="custom-control custom-switch">
+                            <field name="qr_token_required"/>
+                        </div>
+                        <div class="text-muted" style="margin-top: 8px;">
+                            Require token validation (online mode)
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
